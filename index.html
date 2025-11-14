@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ClimbLog Support | iOS Climbing Journal Help, AI Trip Reports &amp; Troubleshooting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Get help with ClimbLog, the SwiftUI iOS climbing journal for photos, voice notes, Mountain Project route data, and AI-powered trip reports. Find setup guides, privacy details, and troubleshooting tips."
+  />
+
+  <!-- Basic SEO keywords for long-tail support queries -->
+  <meta
+    name="keywords"
+    content="ClimbLog support, iOS climbing journal help, AI climbing trip reports, Mountain Project route import issues, WhisperKit transcription offline"
+  />
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: #111827;
+      background-color: #f9fafb;
+    }
+
+    header,
+    main,
+    footer {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    header {
+      padding-top: 2.5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.35rem;
+    }
+
+    p {
+      margin: 0.4rem 0 0.6rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+      margin-top: 0.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    code {
+      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: #e5e7eb;
+      padding: 0.1rem 0.25rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    .tagline {
+      color: #4b5563;
+      font-size: 0.95rem;
+      max-width: 680px;
+    }
+
+    .highlight {
+      font-weight: 600;
+    }
+
+    .callout {
+      background: #eff6ff;
+      border-left: 3px solid #2563eb;
+      padding: 0.75rem 1rem;
+      border-radius: 0.25rem;
+      font-size: 0.95rem;
+      margin: 0.75rem 0 1rem;
+    }
+
+    footer {
+      font-size: 0.85rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 2.5rem;
+      padding-bottom: 2rem;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ClimbLog Support &amp; Help Center</h1>
+    <p class="tagline">
+      Welcome to the official <span class="highlight">ClimbLog support</span> page. ClimbLog is a SwiftUI iOS climbing
+      journal designed to capture your days out with <strong>photos</strong>, <strong>voice notes</strong>, and
+      <strong>AI climbing trip reports</strong>. It uses a free, <strong>Groq-powered</strong> engine for fast,
+      natural-language summaries and is built to be <strong>offline-friendly</strong> so you can log beta even when
+      you’re far from service.
+    </p>
+    <p class="tagline">
+      On this page you’ll find <strong>iOS climbing journal help</strong>, setup guides, privacy details, and
+      troubleshooting steps for AI reports, Mountain Project imports, and WhisperKit transcription offline.
+    </p>
+  </header>
+
+  <main>
+    <!-- Getting Started -->
+    <section id="getting-started">
+      <h2>Getting Started with ClimbLog</h2>
+      <p>
+        ClimbLog is designed to make it fast and fun to capture every pitch, crag day, or big objective with rich
+        context. A single “entry” can contain multiple media pairs (photo + voice note) and optional Mountain Project
+        route data.
+      </p>
+
+      <h3>Creating Your First Climb Entry</h3>
+      <ul>
+        <li>Open ClimbLog and tap <strong>“New Climb”</strong> (or the + button) on the main journal screen.</li>
+        <li>Give the session a title (e.g., “Red Rock – Dark Shadows” or “Yosemite Valley Weekend”).</li>
+        <li>
+          Optionally, add notes or tags (crag, partner name, weather, grade) so you can search for this day later.
+        </li>
+      </ul>
+
+      <h3>Adding Multiple Photo / Voice Pairs</h3>
+      <p>
+        Each climb entry can hold multiple <strong>media pairs</strong> so you can capture a pitch-by-pitch story:
+      </p>
+      <ul>
+        <li>Tap <strong>“Add Photo &amp; Voice Note”</strong> within an entry.</li>
+        <li>
+          Choose or capture a <strong>photo</strong> (lead shot, anchor, topo, or gear spread). Vertical and
+          horizontal photos are both supported.
+        </li>
+        <li>
+          Tap the <strong>record</strong> button to add a <strong>voice note</strong> with beta, feelings, or context.
+        </li>
+        <li>
+          ClimbLog automatically keeps each photo + audio pair together so your AI trip reports can follow the story
+          sequence.
+        </li>
+      </ul>
+
+      <h3>Capturing Images</h3>
+      <ul>
+        <li>Grant <strong>camera</strong> and <strong>photo library</strong> access when prompted.</li>
+        <li>Use the in-app camera to snap quick shots, or import from your existing photo roll.</li>
+        <li>
+          For best results, capture key moments (start of climb, crux, summit, anchors) that will make AI summaries
+          more vivid.
+        </li>
+      </ul>
+
+      <h3>Recording Locally Transcribed Audio</h3>
+      <p>
+        When you record a voice note, ClimbLog uses <strong>Whisper/WhisperKit</strong>-based transcription
+        <strong>locally on your device</strong>. Audio is stored on-device and transcribed to text without leaving your
+        phone.
+      </p>
+      <ul>
+        <li>Tap the record button and speak naturally (beta, emotions, weather, rack, partner banter, etc.).</li>
+        <li>Stop recording when you’re done; ClimbLog will transcribe the note into searchable text.</li>
+        <li>
+          You can edit the transcription manually if you want to clean up names or grades for future reference.
+        </li>
+      </ul>
+
+      <h3>Pulling Mountain Project Route Data</h3>
+      <p>
+        To make logs more structured, ClimbLog can attach <strong>Mountain Project route data</strong> to your entries:
+      </p>
+      <ul>
+        <li>
+          Search or paste a route name exactly as listed on Mountain Project (e.g., “Physical Graffiti (5.6)”).
+        </li>
+        <li>
+          ClimbLog will attempt to fetch route details such as grade, style (trad/sport/toprope), pitches, and
+          location.
+        </li>
+        <li>
+          If route matching fails, you can still log climbs manually and note Mountain Project URLs in your text
+          notes.
+        </li>
+      </ul>
+    </section>
+
+    <!-- AI Trip Reports -->
+    <section id="ai-trip-reports">
+      <h2>AI-Powered Trip Reports</h2>
+      <p>
+        ClimbLog uses a <strong>Groq API</strong>-powered model to turn your photos, voice notes, and route metadata
+        into rich <strong>AI climbing trip reports</strong>. Reports typically generate in about
+        <strong>2–8 seconds</strong>, depending on your connection and how much content is in the entry.
+      </p>
+
+      <h3>Setting Up the Groq API</h3>
+      <ul>
+        <li>
+          Create a free account at the Groq developer site and generate an
+          <strong>API key</strong>.
+        </li>
+        <li>In ClimbLog, open <strong>Settings &gt; AI Trip Reports</strong>.</li>
+        <li>Paste your Groq API key into the designated field.</li>
+        <li>
+          Test the connection by tapping <strong>“Generate Test Report”</strong> (if available) or creating a short
+          sample entry and running AI.
+        </li>
+      </ul>
+
+      <h3>Generating a Trip Report</h3>
+      <ul>
+        <li>Finish adding media and notes for your climb entry.</li>
+        <li>Tap <strong>“Generate AI Trip Report”</strong> in the entry view.</li>
+        <li>
+          ClimbLog sends <strong>only the necessary text and meta data</strong> (transcriptions, route info, tags) to
+          the Groq model for summarization.
+        </li>
+        <li>
+          Within a few seconds, you’ll see a narrative report that you can review, edit, and copy into your journal,
+          blog, or social posts.
+        </li>
+      </ul>
+
+      <h3>Tips for Rich Narratives</h3>
+      <ul>
+        <li>Include emotional context in your voice notes (fear, stoke, fatigue, send attempts).</li>
+        <li>Mention weather, conditions, and rack choices so the AI can highlight them.</li>
+        <li>
+          Add a quick “overall story” voice note at the end of the day to help the model stitch everything together.
+        </li>
+        <li>
+          Use consistent naming (e.g., “Pitch 1: …”, “Pitch 2: …”) across notes for multi-pitch routes.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Privacy & Offline -->
+    <section id="privacy-offline">
+      <h2>Privacy &amp; Offline Capabilities</h2>
+      <p>
+        ClimbLog is built with <strong>privacy-first</strong> and <strong>offline-friendly</strong> design in mind.
+        Your climbing memories belong to you.
+      </p>
+
+      <h3>On-Device Storage</h3>
+      <ul>
+        <li>All entries, photos, and voice notes are stored <strong>locally on your device</strong>.</li>
+        <li>Data is not uploaded to a server or sold to third parties.</li>
+        <li>
+          You can delete individual entries at any time, or remove the app to clear stored data (subject to iOS backup
+          settings).
+        </li>
+      </ul>
+
+      <h3>WhisperKit Transcription Offline</h3>
+      <p>
+        ClimbLog uses <strong>WhisperKit</strong> (or a similar Whisper-based engine) to transcribe your audio notes.
+        This is designed so <strong>voice recordings never need to leave your phone</strong> for transcription.
+      </p>
+      <ul>
+        <li>The transcription model is downloaded once and then runs locally.</li>
+        <li>You can record and transcribe even when you are fully offline.</li>
+        <li>
+          Only when you explicitly request an AI trip report does text content leave your device (to the Groq API).
+        </li>
+      </ul>
+
+      <h3>AI &amp; Network Usage</h3>
+      <div class="callout">
+        <strong>Note:</strong> AI trip reports require an internet connection to talk to the Groq API. You can log
+        everything in airplane mode and generate reports later once you’re back online.
+      </div>
+    </section>
+
+    <!-- Troubleshooting -->
+    <section id="troubleshooting">
+      <h2>Troubleshooting Guides</h2>
+      <p>
+        If ClimbLog isn’t working as expected, use the quick checks below for common issues like camera/microphone
+        access, Whisper model downloads, <strong>Mountain Project route import issues</strong>, or Groq API errors.
+      </p>
+
+      <h3>Camera Permissions</h3>
+      <ul>
+        <li>On iOS, go to <strong>Settings &gt; Privacy &amp; Security &gt; Camera</strong>.</li>
+        <li>Ensure <strong>ClimbLog</strong> is toggled <strong>On</strong>.</li>
+        <li>Restart ClimbLog and try adding a new photo.</li>
+      </ul>
+
+      <h3>Microphone &amp; Audio Recording</h3>
+      <ul>
+        <li>Go to <strong>Settings &gt; Privacy &amp; Security &gt; Microphone</strong>.</li>
+        <li>Confirm <strong>ClimbLog</strong> is allowed to use the microphone.</li>
+        <li>
+          If recordings fail, force-quit the app, reopen it, and attempt a short 1–2 second test recording.
+        </li>
+      </ul>
+
+      <h3>Whisper / WhisperKit Model Download Issues</h3>
+      <ul>
+        <li>Make sure you have a stable Wi-Fi connection when the model is first downloaded.</li>
+        <li>Keep the app open until the initial download finishes.</li>
+        <li>
+          If transcription fails consistently, try restarting the device and triggering a fresh download from within
+          ClimbLog’s settings (if available).
+        </li>
+      </ul>
+
+      <h3>Mountain Project Route Fetching Problems</h3>
+      <p>If you experience <strong>Mountain Project route import issues</strong>:</p>
+      <ul>
+        <li>Double-check spelling, grade format, and location in your search.</li>
+        <li>Try including more context, such as the area or wall name in the search text.</li>
+        <li>
+          If a route still can’t be matched, log it manually and paste the Mountain Project link into your notes for
+          reference.
+        </li>
+      </ul>
+
+      <h3>Groq API Errors</h3>
+      <ul>
+        <li>Verify that your <strong>Groq API key</strong> is valid and not expired or revoked.</li>
+        <li>
+          Check for extra spaces when pasting the key into ClimbLog settings (especially at the end of the string).
+        </li>
+        <li>
+          Ensure you have an active internet connection; AI trip reports won’t work in airplane mode or offline.
+        </li>
+        <li>
+          If the Groq service is rate-limited or temporarily unavailable, wait a few minutes and try again.
+        </li>
+      </ul>
+    </section>
+
+    <!-- FAQs & Future -->
+    <section id="faqs-future">
+      <h2>FAQs &amp; Future Enhancements</h2>
+
+      <h3>How many media pairs can I add to a single climb?</h3>
+      <p>
+        ClimbLog is designed to support multiple photo/voice pairs per entry so you can document each pitch or moment.
+        Practical limits are determined by your device storage; if you’re low on space, consider trimming unused photos
+        or audio clips.
+      </p>
+
+      <h3>Does ClimbLog work offline?</h3>
+      <p>
+        Yes. You can <strong>create entries, add photos, record voice notes, and run WhisperKit transcription
+        offline</strong>. Only AI trip report generation and Mountain Project route fetching require connectivity.
+      </p>
+
+      <h3>Can I export or back up my data?</h3>
+      <p>
+        Future versions of ClimbLog are planned to include more export options (e.g., text/markdown export, JSON, or
+        CSV summaries). For now, you can manually copy AI reports and notes into your own documents or journals.
+      </p>
+
+      <h3>What future features are planned?</h3>
+      <p>
+        We’re actively exploring improvements based on user feedback, including:
+      </p>
+      <ul>
+        <li><strong>GPS tagging</strong> of entries and pitches.</li>
+        <li><strong>Apple Watch support</strong> to quickly capture notes at belays.</li>
+        <li>More flexible data export and backup options.</li>
+        <li>Additional AI templates (e.g., gear lists, condition summaries, partner shout-outs).</li>
+      </ul>
+      <p>
+        These ideas help ClimbLog rank for long-tail queries like “AI climbing trip reports with GPS tags” and
+        “Apple Watch iOS climbing journal help” while shaping the future roadmap.
+      </p>
+    </section>
+
+    <!-- Contact & Community -->
+    <section id="contact-community">
+      <h2>Contact &amp; Community</h2>
+      <p>
+        If you can’t find what you need in this ClimbLog Support &amp; Help Center, we’d love to hear from you. Your
+        bug reports, feature requests, and stories help shape the app.
+      </p>
+
+      <h3>Support Contact</h3>
+      <ul>
+        <li>
+          Email: <a href="mailto:hornliquant@gmail.com">hornliquant@gmail.com</a>
+        </li>
+        <!-- Add or update these as your presence grows -->
+        <li>
+          GitHub (issues &amp; feedback): 
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">Project repository (link TBD)</a>
+        </li>
+      </ul>
+
+      <h3>Share Your Trip Reports</h3>
+      <p>
+        Climbers are encouraged to share screenshots or text exports of their AI trip reports on social media or with
+        partners. Tag your posts so we can see how you use ClimbLog in the wild, and we may feature anonymized examples
+        in future how-to guides.
+      </p>
+
+      <p>
+        As the app grows, this page will link to more detailed <strong>how-to articles, tutorials, and blog posts</strong>
+        about advanced workflows, exporting data, and creative uses of AI in your climbing logbook.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> ClimbLog. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
