@@ -1,426 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>ClimbLog Support | iOS Climbing Journal Help, AI Trip Reports &amp; Troubleshooting</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Get help with ClimbLog, the SwiftUI iOS climbing journal for photos, voice notes, Mountain Project route data, and AI-powered trip reports. Find setup guides, privacy details, and troubleshooting tips."
-  />
-
-  <!-- Basic SEO keywords for long-tail support queries -->
-  <meta
-    name="keywords"
-    content="ClimbLog support, iOS climbing journal help, AI climbing trip reports, Mountain Project route import issues, WhisperKit transcription offline"
-  />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mountain Notebook | Climbing & Ski Touring Log</title>
+  <meta name="description" content="Mountain Notebook helps climbers and ski tourers capture ascents, conditions, and photos in a secure journal built for the mountains.">
+  <meta name="keywords" content="mountain notebook, climbing logbook, ski touring app, avalanche conditions, alpine journal, GPS route tracking">
+  <link rel="canonical" href="https://apps.apple.com/us/app/mountain-notebook/id6755287985">
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      color: #111827;
-      background-color: #f9fafb;
+    :root {
+      color-scheme: light;
+      --bg: #0f172a;
+      --panel: #0b1224;
+      --accent: #76c7c0;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --max-width: 1100px;
     }
 
-    header,
-    main,
-    footer {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 1.5rem;
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(118, 199, 192, 0.08), transparent 25%),
+                  radial-gradient(circle at 80% 10%, rgba(118, 199, 192, 0.1), transparent 30%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
     header {
-      padding-top: 2.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(12, 19, 38, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(118, 199, 192, 0.2);
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+    nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    h2 {
-      font-size: 1.35rem;
-      margin-top: 2rem;
-      margin-bottom: 0.5rem;
+    nav .brand {
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
     }
 
-    h3 {
-      font-size: 1.05rem;
-      margin-top: 1.2rem;
-      margin-bottom: 0.35rem;
-    }
-
-    p {
-      margin: 0.4rem 0 0.6rem;
-    }
-
-    ul {
-      padding-left: 1.5rem;
-      margin-top: 0.2rem;
-      margin-bottom: 0.8rem;
-    }
-
-    code {
-      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: #e5e7eb;
-      padding: 0.1rem 0.25rem;
-      border-radius: 4px;
-      font-size: 0.9em;
-    }
-
-    .tagline {
-      color: #4b5563;
-      font-size: 0.95rem;
-      max-width: 680px;
-    }
-
-    .highlight {
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 1rem;
       font-weight: 600;
     }
 
-    .callout {
-      background: #eff6ff;
-      border-left: 3px solid #2563eb;
-      padding: 0.75rem 1rem;
-      border-radius: 0.25rem;
-      font-size: 0.95rem;
-      margin: 0.75rem 0 1rem;
+    nav a:hover { color: var(--accent); }
+
+    .hero {
+      max-width: var(--max-width);
+      margin: 4rem auto 2rem;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      align-items: center;
     }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .hero p { color: var(--muted); font-size: 1.05rem; }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.4rem;
+      background: linear-gradient(135deg, var(--accent), #87e4db);
+      color: #0b1224;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 1.2rem;
+      box-shadow: 0 10px 35px rgba(118, 199, 192, 0.3);
+    }
+
+    .cta:hover { transform: translateY(-2px); }
+
+    .card-grid {
+      max-width: var(--max-width);
+      margin: 3rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid rgba(118, 199, 192, 0.2);
+      border-radius: 16px;
+      padding: 1.4rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .card h3 { margin-top: 0; }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .section h2 { margin-bottom: 0.5rem; }
+
+    .section p { color: var(--muted); }
 
     footer {
+      border-top: 1px solid rgba(118, 199, 192, 0.2);
+      padding: 1.5rem 1rem 2rem;
+      background: var(--panel);
+      color: var(--muted);
+    }
+
+    footer .footer-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    ul.features {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    ul.features li::before {
+      content: "\2713";
+      color: var(--accent);
+      font-weight: 700;
+      margin-right: 0.5rem;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.35rem 0.8rem;
+      background: rgba(118, 199, 192, 0.15);
+      color: var(--accent);
+      border-radius: 999px;
+      font-weight: 700;
       font-size: 0.85rem;
-      color: #6b7280;
-      border-top: 1px solid #e5e7eb;
-      margin-top: 2.5rem;
-      padding-bottom: 2rem;
-    }
-
-    a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+      letter-spacing: 0.03em;
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Mountain Notebook",
+    "operatingSystem": "iOS",
+    "applicationCategory": "LifestyleApplication",
+    "url": "https://apps.apple.com/us/app/mountain-notebook/id6755287985",
+    "description": "Log mountain adventures, avalanche conditions, and GPS routes for climbing and ski touring.",
+    "author": {
+      "@type": "Person",
+      "name": "Hornli Quant"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "screenshot": [
+      "https://apps.apple.com/us/app/mountain-notebook/id6755287985"
+    ],
+    "keywords": ["climbing", "ski touring", "mountain logbook", "avalanche conditions"]
+  }
+  </script>
 </head>
 <body>
   <header>
-    <h1>ClimbLog Support &amp; Help Center</h1>
-    <p class="tagline">
-      Welcome to the official <span class="highlight">ClimbLog support</span> page. ClimbLog is a SwiftUI iOS climbing
-      journal designed to capture your days out with <strong>photos</strong>, <strong>voice notes</strong>, and
-      <strong>AI climbing trip reports</strong>. It uses a free, <strong>Groq-powered</strong> engine for fast,
-      natural-language summaries and is built to be <strong>offline-friendly</strong> so you can log beta even when
-      you’re far from service.
-    </p>
-    <p class="tagline">
-      On this page you’ll find <strong>iOS climbing journal help</strong>, setup guides, privacy details, and
-      troubleshooting steps for AI reports, Mountain Project imports, and WhisperKit transcription offline.
-    </p>
+    <nav>
+      <div class="brand">Mountain Notebook</div>
+      <div>
+        <a href="#landing">Home</a>
+        <a href="#support">Support</a>
+        <a href="#privacy">Privacy</a>
+      </div>
+    </nav>
   </header>
 
   <main>
-    <!-- Getting Started -->
-    <section id="getting-started">
-      <h2>Getting Started with ClimbLog</h2>
-      <p>
-        ClimbLog is designed to make it fast and fun to capture every pitch, crag day, or big objective with rich
-        context. A single “entry” can contain multiple media pairs (photo + voice note) and Mountain Project
-        route data.
-      </p>
-
-      <h3>Creating Your First Climb Entry</h3>
-      <ul>
-        <li>Open ClimbLog and tap <strong>“New Climb”</strong> (or the + button) on the main journal screen.</li>
-        <li>Paste a MountainProject URL (route information will be automatically fetched)</li>
-        <li>
-          Optionally, add notes or tags (crag, partner name, weather, grade) so you can search for this day later.
-        </li>
-      </ul>
-
-      <h3>Adding Multiple Photo / Voice Pairs</h3>
-      <p>
-        Each climb entry can hold multiple <strong>media pairs</strong> so you can capture a pitch-by-pitch story:
-      </p>
-      <ul>
-        <li>Tap <strong>“Add Photo &amp; Voice Note”</strong> within an entry.</li>
-        <li>
-          Choose or capture a <strong>photo</strong> (lead shot, anchor, topo, or gear spread). Vertical and
-          horizontal photos are both supported.
-        </li>
-        <li>
-          Tap the <strong>record</strong> button to add a <strong>voice note</strong> with beta, feelings, or context.
-        </li>
-        <li>
-          ClimbLog automatically keeps each photo + audio pair together so your AI trip reports can follow the story
-          sequence.
-        </li>
-      </ul>
-
-      <h3>Capturing Images</h3>
-      <ul>
-        <li>Grant <strong>camera</strong> and <strong>photo library</strong> access when prompted.</li>
-        <li>Use the in-app camera to snap quick shots, or import from your existing photo roll.</li>
-        <li>
-          For best results, capture key moments (start of climb, crux, summit, anchors) that will make AI summaries
-          more vivid.
-        </li>
-      </ul>
-
-      <h3>Recording Locally Transcribed Audio</h3>
-      <p>
-        When you record a voice note, ClimbLog uses <strong>Whisper/WhisperKit</strong>-based transcription
-        <strong>locally on your device</strong>. Audio is stored on-device and transcribed to text without leaving your
-        phone.
-      </p>
-      <ul>
-        <li>Tap the record button and speak naturally (beta, emotions, weather, rack, partner banter, etc.).</li>
-        <li>Stop recording when you’re done; ClimbLog will transcribe the note into searchable text.</li>
-        <li>
-          You can edit the transcription manually if you want to clean up names or grades for future reference.
-        </li>
-      </ul>
-
-      <h3>Pulling Mountain Project Route Data</h3>
-      <p>
-        To make logs more structured, ClimbLog can attach <strong>Mountain Project route data</strong> to your entries:
-      </p>
-      <ul>
-        <li>
-          Search or paste a route name exactly as listed on Mountain Project (e.g., “Physical Graffiti (5.6)”).
-        </li>
-        <li>
-          ClimbLog will attempt to fetch route details such as grade, style (trad/sport/toprope), pitches, and
-          location.
-        </li>
-        <li>
-          If route matching fails, you can still log climbs manually and note Mountain Project URLs in your text
-          notes.
-        </li>
-      </ul>
-    </section>
-
-    <!-- AI Trip Reports -->
-    <section id="ai-trip-reports">
-      <h2>AI-Powered Trip Reports</h2>
-      <p>
-        ClimbLog uses a <strong>Groq API</strong>-powered model to turn your photos, voice notes, and route metadata
-        into rich <strong>AI climbing trip reports</strong>. Reports typically generate in about
-        <strong>2–8 seconds</strong>, depending on your connection and how much content is in the entry.
-      </p>
-
-      <h3>Setting Up the Groq API</h3>
-      <ul>
-        <li>
-          Create a free account at the Groq developer site and generate an
-          <strong>API key</strong>.
-        </li>
-        <li>In ClimbLog, open <strong>Settings &gt; AI Trip Reports</strong>.</li>
-        <li>Paste your Groq API key into the designated field.</li>
-        <li>
-          Test the connection by tapping <strong>“Generate Test Report”</strong> (if available) or creating a short
-          sample entry and running AI.
-        </li>
-      </ul>
-
-      <h3>Generating a Trip Report</h3>
-      <ul>
-        <li>Finish adding media and notes for your climb entry.</li>
-        <li>Tap <strong>“Generate AI Trip Report”</strong> in the entry view.</li>
-        <li>
-          ClimbLog sends <strong>only the necessary text and meta data</strong> (transcriptions, route info, tags) to
-          the Groq model for summarization.
-        </li>
-        <li>
-          Within a few seconds, you’ll see a narrative report that you can review, edit, and copy into your journal,
-          blog, or social posts.
-        </li>
-      </ul>
-
-      <h3>Tips for Rich Narratives</h3>
-      <ul>
-        <li>Include emotional context in your voice notes (fear, stoke, fatigue, send attempts).</li>
-        <li>Mention weather, conditions, and rack choices so the AI can highlight them.</li>
-        <li>
-          Add a quick “overall story” voice note at the end of the day to help the model stitch everything together.
-        </li>
-        <li>
-          Use consistent naming (e.g., “Pitch 1: …”, “Pitch 2: …”) across notes for multi-pitch routes.
-        </li>
-      </ul>
-    </section>
-
-    <!-- Privacy & Offline -->
-    <section id="privacy-offline">
-      <h2>Privacy &amp; Offline Capabilities</h2>
-      <p>
-        ClimbLog is built with <strong>privacy-first</strong> and <strong>offline-friendly</strong> design in mind.
-        Your climbing memories belong to you.
-      </p>
-
-      <h3>On-Device Storage</h3>
-      <ul>
-        <li>All entries, photos, and voice notes are stored <strong>locally on your device</strong>.</li>
-        <li>Data is not uploaded to a server or sold to third parties.</li>
-        <li>
-          You can delete individual entries at any time, or remove the app to clear stored data (subject to iOS backup
-          settings).
-        </li>
-      </ul>
-
-      <h3>WhisperKit Transcription Offline</h3>
-      <p>
-        ClimbLog uses <strong>WhisperKit</strong> (or a similar Whisper-based engine) to transcribe your audio notes.
-        This is designed so <strong>voice recordings never need to leave your phone</strong> for transcription.
-      </p>
-      <ul>
-        <li>The transcription model is downloaded once and then runs locally.</li>
-        <li>You can record and transcribe even when you are fully offline.</li>
-        <li>
-          Only when you explicitly request an AI trip report does text content leave your device (to the Groq API).
-        </li>
-      </ul>
-
-      <h3>AI &amp; Network Usage</h3>
-      <div class="callout">
-        <strong>Note:</strong> AI trip reports require an internet connection to talk to the Groq API. You can log
-        everything in airplane mode and generate reports later once you’re back online.
+    <section id="landing" class="hero">
+      <div>
+        <span class="pill">iOS • Climbing & Ski Touring</span>
+        <h1>Document every climb, tour, and summit with clarity.</h1>
+        <p>Mountain Notebook is your secure alpine logbook—capture routes, conditions, avalanche observations, photos, and gear notes, then sync them across devices. Designed for mountaineers who want a reliable memory of every day in the peaks.</p>
+        <a class="cta" href="https://apps.apple.com/us/app/mountain-notebook/id6755287985" target="_blank" rel="noopener">Download on the App Store</a>
+      </div>
+      <div class="card">
+        <h3>Why Mountain Notebook?</h3>
+        <ul class="features">
+          <li>Record climbs, ski tours, and hut approaches with GPS context.</li>
+          <li>Attach avalanche observations and weather notes for each outing.</li>
+          <li>Secure storage with privacy-first local data and exports.</li>
+          <li>Photo and audio support to remember the details that matter.</li>
+        </ul>
       </div>
     </section>
 
-    <!-- Troubleshooting -->
-    <section id="troubleshooting">
-      <h2>Troubleshooting Guides</h2>
-      <p>
-        If ClimbLog isn’t working as expected, use the quick checks below for common issues like camera/microphone
-        access, Whisper model downloads, <strong>Mountain Project route import issues</strong>, or Groq API errors.
-      </p>
+    <section class="card-grid" aria-label="Feature highlights">
+      <div class="card">
+        <h3>Offline-friendly</h3>
+        <p>Save entries where connectivity is limited, then sync when you are back in range.</p>
+      </div>
+      <div class="card">
+        <h3>Avalanche & Weather Notes</h3>
+        <p>Log snowpack stability, wind, and visibility so you can reference past conditions before heading out.</p>
+      </div>
+      <div class="card">
+        <h3>Media-rich Journal</h3>
+        <p>Add photos, audio clips, and gear lists alongside each route to keep your stories vivid.</p>
+      </div>
+      <div class="card">
+        <h3>Secure & Private</h3>
+        <p>Your journal data stays yours. Export entries anytime and manage storage safely.</p>
+      </div>
+    </section>
 
-      <h3>Camera Permissions</h3>
-      <ul>
-        <li>On iOS, go to <strong>Settings &gt; Privacy &amp; Security &gt; Camera</strong>.</li>
-        <li>Ensure <strong>ClimbLog</strong> is toggled <strong>On</strong>.</li>
-        <li>Restart ClimbLog and try adding a new photo.</li>
-      </ul>
-
-      <h3>Microphone &amp; Audio Recording</h3>
-      <ul>
-        <li>Go to <strong>Settings &gt; Privacy &amp; Security &gt; Microphone</strong>.</li>
-        <li>Confirm <strong>ClimbLog</strong> is allowed to use the microphone.</li>
-        <li>
-          If recordings fail, force-quit the app, reopen it, and attempt a short 1–2 second test recording.
-        </li>
-      </ul>
-
-      <h3>Whisper / WhisperKit Model Download Issues</h3>
-      <ul>
-        <li>Make sure you have a stable Wi-Fi connection when the model is first downloaded.</li>
-        <li>Keep the app open until the initial download finishes.</li>
-        <li>
-          If transcription fails consistently, try restarting the device and triggering a fresh download from within
-          ClimbLog’s settings (if available).
-        </li>
-      </ul>
-
-      <h3>Mountain Project Route Fetching Problems</h3>
-      <p>If you experience <strong>Mountain Project route import issues</strong>:</p>
-      <ul>
-        <li>Double-check spelling, grade format, and location in your search.</li>
-        <li>Try including more context, such as the area or wall name in the search text.</li>
-        <li>
-          If a route still can’t be matched, log it manually and paste the Mountain Project link into your notes for
-          reference.
-        </li>
-      </ul>
-
-      <h3>Groq API Errors</h3>
-      <ul>
-        <li>Verify that your <strong>Groq API key</strong> is valid and not expired or revoked.</li>
-        <li>
-          Check for extra spaces when pasting the key into ClimbLog settings (especially at the end of the string).
-        </li>
-        <li>
-          Ensure you have an active internet connection; AI trip reports won’t work in airplane mode or offline.
-        </li>
-        <li>
-          If the Groq service is rate-limited or temporarily unavailable, wait a few minutes and try again.
-        </li>
+    <section id="support" class="section">
+      <h2>Support</h2>
+      <p>If you need help with Mountain Notebook, we are here to make sure your logbook works exactly how you need it.</p>
+      <ul class="features">
+        <li>Email support: <a href="mailto:hornliquant@gmail.com">hornliquant@gmail.com</a></li>
+        <li>Common topics: account recovery, subscription questions, bug reports, feature requests.</li>
+        <li>Response time: we aim to reply within 2 business days.</li>
       </ul>
     </section>
 
-    <!-- FAQs & Future -->
-    <section id="faqs-future">
-      <h2>FAQs &amp; Future Enhancements</h2>
-
-      <h3>How many media pairs can I add to a single climb?</h3>
-      <p>
-        ClimbLog is designed to support multiple photo/voice pairs per entry so you can document each pitch or moment.
-        Practical limits are determined by your device storage; if you’re low on space, consider trimming unused photos
-        or audio clips.
-      </p>
-
-      <h3>Does ClimbLog work offline?</h3>
-      <p>
-        Yes. You can <strong>create entries, add photos, record voice notes, and run WhisperKit transcription
-        offline</strong>. Only AI trip report generation and Mountain Project route fetching require connectivity.
-      </p>
-
-      <h3>Can I export or back up my data?</h3>
-      <p>
-        Future versions of ClimbLog are planned to include more export options (e.g., text/markdown export, JSON, or
-        CSV summaries). For now, you can manually copy AI reports and notes into your own documents or journals.
-      </p>
-
-      <h3>What future features are planned?</h3>
-      <p>
-        We’re actively exploring improvements based on user feedback, including:
-      </p>
-      <ul>
-        <li>Tip Report support for backcountry ski trips</li>
-        <li>More flexible data export and backup options.</li>
-        <li>Potential climbing forum to share trip report.</li>
-      </ul>
-    </section>
-
-    <!-- Contact & Community -->
-    <section id="contact-community">
-      <h2>Contact &amp; Community</h2>
-      <p>
-        If you can’t find what you need in this ClimbLog Support &amp; Help Center, we’d love to hear from you. Your
-        bug reports, feature requests, and stories help shape the app.
-      </p>
-
-      <h3>Support Contact</h3>
-      <p>
-        Email: <a href="mailto:hornliquant@gmail.com">hornliquant@gmail.com</a>
-      </p>
-
-      <h3>Share Your Trip Reports</h3>
-      <p>
-        Climbers are encouraged to share screenshots or text exports of their AI trip reports on social media or with
-        partners. Tag your posts so we can see how you use ClimbLog in the wild, and we may feature anonymized examples
-        in future how-to guides.
-      </p>
-
-      <p>
-        As the app grows, this page will link to more detailed <strong>how-to articles, tutorials, and blog posts</strong>
-        about advanced workflows, exporting data, and creative uses of AI in your climbing logbook.
-      </p>
+    <section id="privacy" class="section">
+      <h2>Privacy</h2>
+      <p>Mountain Notebook is built for privacy-first record keeping. We minimize data collection and give you control over your information.</p>
+      <div class="card-grid" style="margin: 1.5rem 0 0;">
+        <div class="card">
+          <h3>Data We Collect</h3>
+          <p>Only the information you add in the app: journal entries, media attachments, and optional location notes used to contextualize your outings.</p>
+        </div>
+        <div class="card">
+          <h3>How It’s Used</h3>
+          <p>Your data is used solely to provide app functionality such as syncing entries, displaying maps, and enabling exports. We do not sell or share your personal data with advertisers.</p>
+        </div>
+        <div class="card">
+          <h3>Your Control</h3>
+          <p>Export or delete your entries anytime. For privacy questions or data requests, contact <a href="mailto:hornliquant@gmail.com">hornliquant@gmail.com</a>.</p>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; <span id="year"></span> ClimbLog. All rights reserved.</p>
+    <div class="footer-content">
+      <div>Mountain Notebook • Built for climbers, ski tourers, and mountain guides.</div>
+      <div>Contact: <a href="mailto:hornliquant@gmail.com">hornliquant@gmail.com</a></div>
+      <div><a href="#privacy" style="color: var(--text);">Privacy</a> · <a href="#support" style="color: var(--text);">Support</a> · <a href="https://apps.apple.com/us/app/mountain-notebook/id6755287985" style="color: var(--text);">App Store</a></div>
+    </div>
   </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
